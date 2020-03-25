@@ -1,3 +1,6 @@
+<!DOCTYPE html>
+
+
 <?php
     $host = 'localhost';
     $user = 'root';
@@ -18,8 +21,22 @@
         throw new \PDOException($e->getMessage(), (int) $e->getCode());
     }
 
+    $stmt = $pdo->query('SELECT title, rating FROM series');
+        while ($row = $stmt->fetch()){
+            echo $row['title'] . '<br>' . "\n";
+            echo $row['rating'] . '<br>' . "\n";
+        }
+?>
+    <html>
+        <br>
+        <br>
+        <br>
+    </html>
 
-
-
-    
+<?php
+    $stmt = $pdo->query('SELECT title, duur FROM films');
+        while ($row = $stmt->fetch()){
+            echo $row['title'] . '<br>' . "\n";
+            echo $row['duur'] . '<br>' . "\n";
+             }
 ?>
